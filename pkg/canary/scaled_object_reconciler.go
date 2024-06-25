@@ -87,7 +87,7 @@ func (sor *ScaledObjectReconciler) reconcilePrimaryScaler(cd *flaggerv1.Canary, 
 	primarySo, err := sor.flaggerClient.KedaV1alpha1().ScaledObjects(cd.Namespace).Get(context.TODO(), primarySoName, metav1.GetOptions{})
 	if errors.IsNotFound(err) {
 		primarySo = &keda.ScaledObject{
-			// Passing in the annotations from the targetSo so that they are carried over to the primarySo. This is required so that the transfer ownership annotation can be added.
+			// Passing in the annotations from the targetSo, so that they are carried over to the primarySo. This is required so that the transfer ownership annotation can be added.
 			ObjectMeta: makeObjectMetaSo(primarySoName, targetSoClone.Labels, targetSoClone.Annotations, cd),
 			Spec:       soSpec,
 		}
