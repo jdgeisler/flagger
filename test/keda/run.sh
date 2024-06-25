@@ -8,4 +8,4 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 "$DIR"/install.sh
 
 "$REPO_ROOT"/test/workloads/init.sh
-"$DIR"/test-scaledobject.sh
+"$DIR"/test-migration.sh
